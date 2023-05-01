@@ -1,11 +1,11 @@
-const SideBar = () => {
+const SideBar = ({ sections, status }) => {
   return (
     <div
       style={{
         width: "70px",
         height: "100%",
         backgroundColor: "#0E284F",
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
       }}
@@ -22,32 +22,41 @@ const SideBar = () => {
       >
         <img src="./img/music-icon.png" alt="music-icon"></img>
       </div>
-      <div style={{ marginTop: "31px" }}>
-        <ul
-          style={{
-            listStyle: "none",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <li>
-            <img src="./img/statistics.png" alt="statistics"></img>
+      <ul
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          height: "300px",
+          listStyle: "none",
+          marginTop: "23px",
+          marginBottom: 0,
+          padding: "8px 0px",
+        }}
+      >
+        {sections.map((section) => (
+          <li
+            key={section.id}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "31px",
+              width: "100%",
+              transition: "background 0.1s ease",
+              // "&:hover": {
+              //   background:
+              //     "linear-gradient(90deg, rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 85.19%)",
+              // },
+            }}
+            onClick={() => {
+              status(section);
+            }}
+          >
+            <img src={`./img/${section.img}`} alt={`${section.alt}`}></img>
           </li>
-          <li>
-            <img src="./img/headphones.png" alt="headphones"></img>
-          </li>
-          <li>
-            <img src="./img/music-list.png" alt="music-list"></img>
-          </li>
-          <li>
-            <img src="./img/promotion.png" alt="promotion"></img>
-          </li>
-          <li>
-            <img src="./img/newspaper.png" alt="newspaper"></img>
-          </li>
-        </ul>
-      </div>
+        ))}
+      </ul>
     </div>
   );
 };
