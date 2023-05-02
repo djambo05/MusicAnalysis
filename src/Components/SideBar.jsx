@@ -44,13 +44,21 @@ const SideBar = ({ sections, status }) => {
               height: "31px",
               width: "100%",
               transition: "background 0.1s ease",
-              // "&:hover": {
-              //   background:
-              //     "linear-gradient(90deg, rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 85.19%)",
-              // },
+              ":hover": {
+                transform: "scale(1,1)",
+                background:
+                  "linear-gradient(90deg, rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 85.19%)",
+              },
             }}
             onClick={() => {
               status(section);
+            }}
+            onMouseOver={(e) => {
+              e.target.style.background =
+                "linear-gradient(90deg, rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 85.19%)";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.background = "transparent";
             }}
           >
             <img src={`./img/${section.img}`} alt={`${section.alt}`}></img>
