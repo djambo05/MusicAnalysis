@@ -49,7 +49,7 @@ const SideBar = ({ sections, status }) => {
             }}
             onMouseOver={(e) => {
               e.target.style.background =
-                "linear-gradient(90deg, rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 38.5%)";
+                "linear-gradient(90deg, rgba(255, 255, 255, 1) 7%,  rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 38.5%)";
             }}
             onMouseOut={(e) => {
               e.target.style.background = "transparent";
