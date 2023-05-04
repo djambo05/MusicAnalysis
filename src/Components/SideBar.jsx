@@ -1,6 +1,6 @@
 const SideBar = ({ sections, status }) => {
   return (
-    <div
+    <nav
       style={{
         width: "70px",
         height: "100%",
@@ -27,11 +27,11 @@ const SideBar = ({ sections, status }) => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          height: "300px",
+          height: "290px",
           listStyle: "none",
-          marginTop: "23px",
+          marginTop: "31px",
           marginBottom: 0,
-          padding: "8px 0px",
+          padding: "0px 0px",
         }}
       >
         {sections.map((section) => (
@@ -41,31 +41,29 @@ const SideBar = ({ sections, status }) => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              height: "31px",
+              height: "40px",
               width: "100%",
-              transition: "background 0.1s ease",
-              ":hover": {
-                transform: "scale(1,1)",
-                background:
-                  "linear-gradient(90deg, rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 85.19%)",
-              },
             }}
             onClick={() => {
               status(section);
             }}
             onMouseOver={(e) => {
               e.target.style.background =
-                "linear-gradient(90deg, rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 85.19%)";
+                "linear-gradient(90deg, rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 38.5%)";
             }}
             onMouseOut={(e) => {
               e.target.style.background = "transparent";
             }}
           >
-            <img src={`./img/${section.img}`} alt={`${section.alt}`}></img>
+            <img
+              style={{ pointerEvents: "none" }}
+              src={`./img/${section.img}`}
+              alt={`${section.alt}`}
+            ></img>
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 };
 
