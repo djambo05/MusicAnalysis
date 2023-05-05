@@ -25,3 +25,26 @@ ul {
     justify-content: space-between;
     list-style: none
 }
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #0E284F;
+    width: 70px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar.expanded {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #0E284F;
+    width: 228px;
+    height: 100%;
+}

@@ -1,19 +1,7 @@
 import "./style.css";
-const SideBar = ({ sections, status }) => {
+const SideBar = ({ sections, status, expanded, toggle }) => {
   return (
-    <nav
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        position: "fixed",
-        backgroundColor: "#0E284F",
-        width: "70px",
-        height: "100%",
-        top: 0,
-        left: 0,
-      }}
-    >
+    <nav className={`sidebar ${expanded ? "expanded" : ""}`}>
       <aside>
         <div
           style={{
@@ -71,7 +59,7 @@ const SideBar = ({ sections, status }) => {
           padding: "0px 0px",
         }}
       >
-        <li>
+        <li onClick={toggle}>
           <img
             style={{ pointerEvents: "none" }}
             src="./img/arrow.png"

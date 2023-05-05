@@ -30,13 +30,23 @@ function App() {
     },
   ];
   const [activeSection, setActiveSection] = useState(menuData);
+  const [expanded, setExpanded] = useState(false);
   const handleSectionClick = (section) => {
     console.log(section);
     setActiveSection(section);
   };
+  const toggleExpanded = () => {
+    setExpanded(!expanded);
+    console.log(expanded);
+  };
   return (
     <>
-      <SideBar sections={menuData} status={handleSectionClick} />
+      <SideBar
+        sections={menuData}
+        status={handleSectionClick}
+        expanded={expanded}
+        toggle={toggleExpanded}
+      />
     </>
   );
 }
