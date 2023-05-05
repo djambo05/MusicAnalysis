@@ -1,12 +1,15 @@
 li {
-    position: relative
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-li:hover {
+li#section:hover {
     background: linear-gradient(90deg,  rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 38.5%);
 }
 
-li:hover::after {
+li#section:hover::after {
     content: '';
     position: absolute;
     top: 0;
@@ -15,4 +18,10 @@ li:hover::after {
     height: 100%;
     background-color: #FFFFFF;
     border-radius: 10px;
+}
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none
 }

@@ -3,13 +3,13 @@ const SideBar = ({ sections, status }) => {
   return (
     <nav
       style={{
-        width: "70px",
-        height: "100%",
-        backgroundColor: "#0E284F",
-        position: "fixed",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        position: "fixed",
+        backgroundColor: "#0E284F",
+        width: "70px",
+        height: "100%",
         top: 0,
         left: 0,
       }}
@@ -17,35 +17,29 @@ const SideBar = ({ sections, status }) => {
       <aside>
         <div
           style={{
-            width: "100%",
-            height: "80px",
-            backgroundColor: "#3051FF",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            width: "100%",
+            height: "80px",
+            backgroundColor: "#3051FF",
           }}
         >
           <img src="./img/music-icon.png" alt="music-icon"></img>
         </div>
         <ul
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            height: "290px",
-            listStyle: "none",
-            marginTop: "31px",
+            height: 290,
+            marginTop: 31,
             marginBottom: 0,
             padding: "0px 0px",
           }}
         >
           {sections.map((section) => (
             <li
+              id="section"
               key={section.id}
               style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
                 height: "40px",
                 width: "100%",
               }}
@@ -71,19 +65,25 @@ const SideBar = ({ sections, status }) => {
       </aside>
       <ul
         style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          listStyle: "none",
+          gap: 10,
           marginTop: 0,
+          marginBottom: 30,
           padding: "0px 0px",
         }}
       >
         <li>
-          <img alt=""></img>
+          <img
+            style={{ pointerEvents: "none" }}
+            src="./img/arrow.png"
+            alt="Arrow"
+          ></img>
         </li>
         <li>
-          <img src="./img/avatar.png" alt="avatar"></img>
+          <img
+            style={{ pointerEvents: "none" }}
+            src="./img/avatar.png"
+            alt="Avatar"
+          ></img>
         </li>
       </ul>
     </nav>
