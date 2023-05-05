@@ -49,7 +49,7 @@ function App() {
         width: "100%",
       }}
       onClick={() => {
-        handleSectionClick();
+        handleSectionClick(section);
       }}
       onMouseOver={(e) => {
         e.target.style.background =
@@ -60,7 +60,7 @@ function App() {
       }}
     >
       <img
-        style={{ pointerEvents: "none" }}
+        className="main_menus_icons"
         src={`./img/${section.img}`}
         alt={`${section.alt}`}
       ></img>

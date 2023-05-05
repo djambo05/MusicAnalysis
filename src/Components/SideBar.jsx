@@ -3,23 +3,17 @@ const SideBar = ({ expanded, toggle, menus }) => {
   return (
     <nav className={`sidebar ${expanded ? "expanded" : ""}`}>
       <aside>
-        <div className={`temp ${expanded ? "expanded" : ""}`}>
-          <img src="./img/music-icon.png" alt="music-icon"></img>
+        <div className={`main_music ${expanded ? "expanded" : ""}`}>
+          <img
+            style={{ position: "absolute", top: 20, left: 15 }}
+            src="./img/music-icon.png"
+            alt="music-icon"
+          ></img>
           <span className={`music ${expanded ? "animate" : ""}`}>
             {expanded && "Music Manage"}
           </span>
         </div>
-        <ul
-          className="new"
-          style={{
-            height: 290,
-            marginTop: 31,
-            marginBottom: 0,
-            padding: "0px 0px",
-          }}
-        >
-          {menus}
-        </ul>
+        <ul className="sidebar_menu">{menus}</ul>
       </aside>
       <ul
         style={{
@@ -29,16 +23,27 @@ const SideBar = ({ expanded, toggle, menus }) => {
           padding: "0px 0px",
         }}
       >
-        <li onClick={toggle}>
+        <li
+          style={{
+            height: "24px",
+            width: "100%",
+          }}
+          onClick={toggle}
+        >
           <img
-            style={{ pointerEvents: "none" }}
+            style={{ position: "absolute", left: 23, pointerEvents: "none" }}
             src="./img/arrow.png"
             alt="Arrow"
           ></img>
         </li>
-        <li>
+        <li
+          style={{
+            height: "40px",
+            width: "100%",
+          }}
+        >
           <img
-            style={{ pointerEvents: "none" }}
+            style={{ position: "absolute", left: 15, pointerEvents: "none" }}
             src="./img/avatar.png"
             alt="Avatar"
           ></img>
