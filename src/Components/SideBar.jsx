@@ -36,7 +36,7 @@ const SideBar = ({ sections, status, expanded, toggle }) => {
               }}
               onMouseOver={(e) => {
                 e.target.style.background =
-                  "linear-gradient(90deg,  rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 38.5%)";
+                  "linear-gradient(90deg,  rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 26.95px)";
               }}
               onMouseOut={(e) => {
                 e.target.style.background = "transparent";
