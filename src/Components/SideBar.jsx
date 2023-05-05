@@ -1,19 +1,5 @@
 import "./style.css";
 const SideBar = ({ sections, status }) => {
-  const overstyle = {
-    position: "relative",
-    background:
-      "linear-gradient(90deg,  rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 38.5%)",
-    "&::before": {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "7%",
-      height: "100%",
-      backgroundColor: "#FF0000",
-      borderRadius: "10px 0 0 10px",
-    },
-  };
   return (
     <nav
       style={{
