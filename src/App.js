@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./styles/global.css";
 import SideBar from "./Components/SideBar";
 
 function App() {
@@ -39,14 +40,36 @@ function App() {
     setExpanded(!expanded);
     console.log(expanded);
   };
+  const menus = menuData.map((section) => (
+    <li
+      className="main_menus"
+      key={section.id}
+      style={{
+        height: "40px",
+        width: "100%",
+      }}
+      onClick={() => {
+        handleSectionClick();
+      }}
+      onMouseOver={(e) => {
+        e.target.style.background =
+          "linear-gradient(90deg,  rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 26.95px)";
+      }}
+      onMouseOut={(e) => {
+        e.target.style.background = "transparent";
+      }}
+    >
+      <img
+        style={{ pointerEvents: "none" }}
+        src={`./img/${section.img}`}
+        alt={`${section.alt}`}
+      ></img>
+    </li>
+  ));
+
   return (
     <>
-      <SideBar
-        sections={menuData}
-        status={handleSectionClick}
-        expanded={expanded}
-        toggle={toggleExpanded}
-      />
+      <SideBar expanded={expanded} toggle={toggleExpanded} menus={menus} />
     </>
   );
 }
