@@ -9,7 +9,7 @@ const SideBar = ({ expanded, toggle, menus }) => {
             src="./img/music-icon.png"
             alt="music-icon"
           ></img>
-          <span className={`music ${expanded ? "animate" : ""}`}>
+          <span className={`menus_info ${expanded ? "animate" : ""}`}>
             {expanded && "Music Manage"}
           </span>
         </div>
@@ -47,6 +47,9 @@ const SideBar = ({ expanded, toggle, menus }) => {
             src="./img/avatar.png"
             alt="Avatar"
           ></img>
+          <span className={`sidebar_bottom ${expanded ? "animate" : ""}`}>
+            {expanded && "Настройки аккаунта"}
+          </span>
         </li>
       </ul>
     </nav>

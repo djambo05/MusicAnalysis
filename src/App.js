@@ -6,26 +6,31 @@ function App() {
   const menuData = [
     {
       id: 1,
+      title: "Аналитика",
       img: "statistics.png",
       alt: "statistics",
     },
     {
       id: 2,
+      title: "Моя музыка",
       img: "headphones.png",
       alt: "headphones",
     },
     {
       id: 3,
+      title: "Тексты треков",
       img: "music-list.png",
       alt: "music-list",
     },
     {
       id: 4,
+      title: "Маркетинг",
       img: "promotion.png",
       alt: "promotion",
     },
     {
       id: 5,
+      title: "Новости",
       img: "newspaper.png",
       alt: "newspaper",
     },
@@ -64,6 +69,9 @@ function App() {
         src={`./img/${section.img}`}
         alt={`${section.alt}`}
       ></img>
+      <span className={`main_menus ${expanded ? "animate" : ""}`}>
+        {expanded && section.title}
+      </span>
     </li>
   ));
 
