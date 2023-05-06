@@ -1,4 +1,5 @@
-import "../styles/global.css";
+import "../../styles/global.css";
+import "./SideBar.scss";
 const SideBar = ({ expanded, toggle, menus }) => {
   return (
     <nav className={`sidebar ${expanded ? "expanded" : ""}`}>
@@ -32,7 +33,7 @@ const SideBar = ({ expanded, toggle, menus }) => {
         >
           <img
             style={{ position: "absolute", left: 23, pointerEvents: "none" }}
-            src="./img/arrow.png"
+            src={`./img/${expanded ? "reverseArrow.png" : "arrow.png"}`}
             alt="Arrow"
           ></img>
         </li>

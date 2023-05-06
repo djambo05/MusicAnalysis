@@ -1,6 +1,5 @@
 import { useState } from "react";
-import "./styles/global.css";
-import SideBar from "./Components/SideBar";
+import SideBar from "./Components/SideBar/SideBar";
 
 function App() {
   const menuData = [
@@ -35,12 +34,7 @@ function App() {
       alt: "newspaper",
     },
   ];
-  const [activeSection, setActiveSection] = useState(menuData);
   const [expanded, setExpanded] = useState(false);
-  const handleSectionClick = (section) => {
-    console.log(section);
-    setActiveSection(section);
-  };
   const toggleExpanded = () => {
     setExpanded(!expanded);
     console.log(expanded);
@@ -52,16 +46,6 @@ function App() {
       style={{
         height: "40px",
         width: "100%",
-      }}
-      onClick={() => {
-        handleSectionClick(section);
-      }}
-      onMouseOver={(e) => {
-        e.target.style.background =
-          "linear-gradient(90deg,  rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 26.95px)";
-      }}
-      onMouseOut={(e) => {
-        e.target.style.background = "transparent";
       }}
     >
       <img

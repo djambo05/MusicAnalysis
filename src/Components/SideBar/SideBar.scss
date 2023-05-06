@@ -1,0 +1,136 @@
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none
+}
+li {
+    position: relative;
+}
+
+.main_menus.animate {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    position: absolute;
+    left: 63.5px;
+    top: 10.5px;
+    pointer-events: none;
+    white-space: nowrap;
+    animation: sidebar-link 0.3s ease forwards;
+}
+
+.main_menus_icons {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    pointer-events: none;
+    left: 21.5px;
+    top: 6.5px;
+}
+
+
+.main_menus:hover {
+    background: linear-gradient(90deg,  rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 26.95px);
+}
+
+.main_menus:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #0E284F;
+    width: 70px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar.expanded {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #0E284F;
+    width: 228px;
+    height: 100%;
+}
+
+.sidebar_menu {
+    height: 290px;
+    margin-top: 31px;
+    margin-bottom: 0px;
+    padding: 0px 0px;
+}
+
+.main_music {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background-color: #3051FF;
+}
+
+.main_music.expanded {
+    position: relative;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    width: 100%;
+    height: 80px;
+    background-color: #3051FF;
+}
+
+.menus_info {
+    opacity: 0;
+}
+
+.menus_info.animate {
+    position: absolute;
+    top: 28px;
+    left: 55px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: white;
+    white-space: nowrap;
+    animation: sidebar-link 0.3s ease forwards;
+}
+
+.sidebar_bottom.animate {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+    color: #FFFFFF;
+    position: absolute;
+    left: 63.5px;
+    top: 10.5px;
+    pointer-events: none;
+    white-space: nowrap;
+    animation: sidebar-link 0.3s ease forwards;
+}
+
+@keyframes sidebar-link{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
