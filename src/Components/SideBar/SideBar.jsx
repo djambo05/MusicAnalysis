@@ -39,16 +39,16 @@ const SideBar = () => {
     setExpanded(!expanded);
   };
   const menus = menuData.map((section) => (
-    <li
-      className="main_menus"
-      key={section.id}
-      style={{
-        height: "40px",
-        width: "100%",
-      }}
-    >
+    <li className="menus-li" key={section.id}>
       <img
-        className="main_menus_icons"
+        style={{
+          position: "absolute",
+          width: "27px",
+          height: "27px",
+          pointerEvents: "none",
+          left: "21.5px",
+          top: "6.5px",
+        }}
         src={`./img/${section.img}`}
         alt={`${section.alt}`}
       ></img>
@@ -60,7 +60,6 @@ const SideBar = () => {
 
   return (
     <nav
-      // className={`sidebar ${expanded ? "expanded" : ""}`}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -85,10 +84,27 @@ const SideBar = () => {
             {expanded && "Music Manage"}
           </span>
         </div>
-        <ul className="sidebar_menu">{menus}</ul>
+        <ul
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            listStyle: "none",
+            height: "290px",
+            marginTop: "31px",
+            marginBottom: "0px",
+            padding: "0px 0px",
+          }}
+        >
+          {menus}
+        </ul>
       </aside>
       <ul
         style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          listStyle: "none",
           gap: 10,
           marginTop: 0,
           marginBottom: 30,
@@ -97,6 +113,7 @@ const SideBar = () => {
       >
         <li
           style={{
+            position: "relative",
             height: "24px",
             width: "100%",
           }}
@@ -110,6 +127,7 @@ const SideBar = () => {
         </li>
         <li
           style={{
+            position: "relative",
             height: "40px",
             width: "100%",
           }}
