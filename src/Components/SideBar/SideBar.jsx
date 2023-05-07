@@ -80,7 +80,20 @@ const SideBar = () => {
             src="./img/music-icon.png"
             alt="music-icon"
           ></img>
-          <span className={`menus_info ${expanded ? "animate" : ""}`}>
+          <span
+            style={{
+              position: "absolute",
+              top: "28px",
+              left: "55px",
+              fontStyle: "normal",
+              fontWeight: "500",
+              fontSize: "20px",
+              lineHeight: "24px",
+              color: "white",
+              whiteSpace: "nowrap",
+              animation: "sidebar-link 0.3s ease forwards",
+            }}
+          >
             {expanded && "Music Manage"}
           </span>
         </div>

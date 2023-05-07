@@ -26,23 +26,6 @@
     background-color: #3051FF;
 }
 
-.menus_info {
-    opacity: 0;
-}
-
-.menus_info.animate {
-    position: absolute;
-    top: 28px;
-    left: 55px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    color: white;
-    white-space: nowrap;
-    animation: sidebar-link 0.3s ease forwards;
-}
-
 .sidebar_bottom.animate {
     font-style: normal;
     font-weight: 500;
