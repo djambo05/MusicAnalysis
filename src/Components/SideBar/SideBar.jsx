@@ -56,12 +56,10 @@ const SideBar = () => {
         <li className="menus-li" key={section.id}>
           <img
             style={{
-              position: "absolute",
               width: "27px",
               height: "27px",
               pointerEvents: "none",
-              left: "21.5px",
-              top: "6.5px",
+              marginLeft: "21.5px",
             }}
             src={`./img/${section.img}`}
             alt={`${section.alt}`}
@@ -73,9 +71,6 @@ const SideBar = () => {
               fontSize: "16px",
               lineHeight: "19px",
               color: "#FFFFFF",
-              position: "absolute",
-              left: "63.5px",
-              top: "10.5px",
               pointerEvents: "none",
               whiteSpace: "nowrap",
               animation: "sidebar-link 0.3s ease forwards",
@@ -83,6 +78,7 @@ const SideBar = () => {
           >
             {expanded && section.title}
           </span>
+          <span style={{ flexGrow: 1 }}></span>
         </li>
       ))}{" "}
     </ul>
