@@ -171,7 +171,22 @@ const SideBar = () => {
             src="./img/avatar.png"
             alt="Avatar"
           ></img>
-          <span className={`sidebar_bottom ${expanded ? "animate" : ""}`}>
+          <span
+            style={{
+              fontStyle: "normal",
+              fontWeight: "500",
+              fontSize: "14px",
+              lineHeight: "17px",
+              textDecorationLine: "underline",
+              color: "#FFFFFF",
+              position: "absolute",
+              left: "63.5px",
+              top: "10.5px",
+              pointerEvents: "none",
+              whiteSpace: "nowrap",
+              animation: "sidebar-link 0.3s ease forwards",
+            }}
+          >
             {expanded && "Настройки аккаунта"}
           </span>
         </li>
