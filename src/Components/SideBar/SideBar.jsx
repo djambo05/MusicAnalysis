@@ -52,7 +52,21 @@ const SideBar = () => {
         src={`./img/${section.img}`}
         alt={`${section.alt}`}
       ></img>
-      <span className={`main_menus ${expanded ? "animate" : ""}`}>
+      <span
+        style={{
+          fontStyle: "normal",
+          fontWeight: "500",
+          fontSize: "16px",
+          lineHeight: "19px",
+          color: "#FFFFFF",
+          position: "absolute",
+          left: "63.5px",
+          top: "10.5px",
+          pointerEvents: "none",
+          whiteSpace: "nowrap",
+          animation: "sidebar-link 0.3s ease forwards",
+        }}
+      >
         {expanded && section.title}
       </span>
     </li>
