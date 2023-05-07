@@ -99,41 +99,40 @@ const SideBar = () => {
         transition: "width 0.3s ease-in-out",
       }}
     >
-      <aside>
-        <div
+      <div
+        style={{
+          display: "flex",
+          gap: "5px",
+          alignItems: "center",
+          width: "100%",
+          height: "80px",
+          backgroundColor: "#3051FF",
+        }}
+      >
+        <img
           style={{
-            display: "flex",
-            gap: "5px",
-            alignItems: "center",
-            width: "100%",
-            height: "80px",
-            backgroundColor: "#3051FF",
+            marginLeft: "15px",
+          }}
+          src="./img/music-icon.png"
+          alt="music-icon"
+        ></img>
+        <span
+          style={{
+            fontStyle: "normal",
+            fontWeight: "500",
+            fontSize: "20px",
+            lineHeight: "24px",
+            color: "white",
+            whiteSpace: "nowrap",
+            animation: "sidebar-expand 0.3s ease forwards",
           }}
         >
-          <img
-            style={{
-              marginLeft: "15px",
-            }}
-            src="./img/music-icon.png"
-            alt="music-icon"
-          ></img>
-          <span
-            style={{
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "20px",
-              lineHeight: "24px",
-              color: "white",
-              whiteSpace: "nowrap",
-              animation: "sidebar-expand 0.3s ease forwards",
-            }}
-          >
-            {expanded && "Music Manage"}
-          </span>
-          <span style={{ flexGrow: 1 }}></span>
-        </div>
-        {menus}
-      </aside>
+          {expanded && "Music Manage"}
+        </span>
+        <span style={{ flexGrow: 1 }}></span>
+      </div>
+      {menus}
+      <div style={{ flexGrow: 1 }}></div>
       <ul
         style={{
           display: "flex",
