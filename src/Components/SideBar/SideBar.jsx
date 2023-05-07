@@ -38,39 +38,55 @@ const SideBar = () => {
   const toggleExpanded = () => {
     setExpanded(!expanded);
   };
-  const menus = menuData.map((section) => (
-    <li className="menus-li" key={section.id}>
-      <img
-        style={{
-          position: "absolute",
-          width: "27px",
-          height: "27px",
-          pointerEvents: "none",
-          left: "21.5px",
-          top: "6.5px",
-        }}
-        src={`./img/${section.img}`}
-        alt={`${section.alt}`}
-      ></img>
-      <span
-        style={{
-          fontStyle: "normal",
-          fontWeight: "500",
-          fontSize: "16px",
-          lineHeight: "19px",
-          color: "#FFFFFF",
-          position: "absolute",
-          left: "63.5px",
-          top: "10.5px",
-          pointerEvents: "none",
-          whiteSpace: "nowrap",
-          animation: "sidebar-link 0.3s ease forwards",
-        }}
-      >
-        {expanded && section.title}
-      </span>
-    </li>
-  ));
+  const menus = (
+    <ul
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        listStyle: "none",
+        height: "290px",
+        marginTop: "31px",
+        marginBottom: "0px",
+        padding: "0px 0px",
+      }}
+    >
+      {" "}
+      {menuData.map((section) => (
+        <li className="menus-li" key={section.id}>
+          <img
+            style={{
+              position: "absolute",
+              width: "27px",
+              height: "27px",
+              pointerEvents: "none",
+              left: "21.5px",
+              top: "6.5px",
+            }}
+            src={`./img/${section.img}`}
+            alt={`${section.alt}`}
+          ></img>
+          <span
+            style={{
+              fontStyle: "normal",
+              fontWeight: "500",
+              fontSize: "16px",
+              lineHeight: "19px",
+              color: "#FFFFFF",
+              position: "absolute",
+              left: "63.5px",
+              top: "10.5px",
+              pointerEvents: "none",
+              whiteSpace: "nowrap",
+              animation: "sidebar-link 0.3s ease forwards",
+            }}
+          >
+            {expanded && section.title}
+          </span>
+        </li>
+      ))}{" "}
+    </ul>
+  );
 
   return (
     <nav
@@ -118,20 +134,7 @@ const SideBar = () => {
             {expanded && "Music Manage"}
           </span>
         </div>
-        <ul
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            listStyle: "none",
-            height: "290px",
-            marginTop: "31px",
-            marginBottom: "0px",
-            padding: "0px 0px",
-          }}
-        >
-          {menus}
-        </ul>
+        {menus}
       </aside>
       <ul
         style={{
