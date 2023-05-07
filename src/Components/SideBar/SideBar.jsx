@@ -102,22 +102,23 @@ const SideBar = () => {
       <aside>
         <div
           style={{
-            position: "relative",
+            display: "flex",
+            gap: "5px",
+            alignItems: "center",
             width: "100%",
             height: "80px",
             backgroundColor: "#3051FF",
           }}
         >
           <img
-            style={{ position: "absolute", top: 20, left: 15 }}
+            style={{
+              marginLeft: "15px",
+            }}
             src="./img/music-icon.png"
             alt="music-icon"
           ></img>
           <span
             style={{
-              position: "absolute",
-              top: "28px",
-              left: "55px",
               fontStyle: "normal",
               fontWeight: "500",
               fontSize: "20px",
@@ -129,6 +130,7 @@ const SideBar = () => {
           >
             {expanded && "Music Manage"}
           </span>
+          <span style={{ flexGrow: 1 }}></span>
         </div>
         {menus}
       </aside>
@@ -146,27 +148,32 @@ const SideBar = () => {
       >
         <li
           style={{
-            position: "relative",
             height: "24px",
             width: "100%",
           }}
           onClick={toggleExpanded}
         >
           <img
-            style={{ position: "absolute", left: 23, pointerEvents: "none" }}
+            style={{
+              marginLeft: "23px",
+            }}
             src={`./img/${expanded ? "reverseArrow.png" : "arrow.png"}`}
             alt="Arrow"
           ></img>
         </li>
         <li
           style={{
-            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            gap: "13.5px",
             height: "40px",
             width: "100%",
           }}
         >
           <img
-            style={{ position: "absolute", left: 15, pointerEvents: "none" }}
+            style={{
+              marginLeft: "15px",
+            }}
             src="./img/avatar.png"
             alt="Avatar"
           ></img>
@@ -178,9 +185,6 @@ const SideBar = () => {
               lineHeight: "17px",
               textDecorationLine: "underline",
               color: "#FFFFFF",
-              position: "absolute",
-              left: "63.5px",
-              top: "10.5px",
               pointerEvents: "none",
               whiteSpace: "nowrap",
               animation: "sidebar-link 0.3s ease forwards",
