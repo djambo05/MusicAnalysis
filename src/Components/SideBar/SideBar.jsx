@@ -73,7 +73,7 @@ const SideBar = () => {
               color: "#FFFFFF",
               pointerEvents: "none",
               whiteSpace: "nowrap",
-              animation: "sidebar-link 0.3s ease forwards",
+              animation: "sidebar-expand 0.3s ease forwards",
             }}
           >
             {expanded && section.title}
@@ -125,7 +125,7 @@ const SideBar = () => {
               lineHeight: "24px",
               color: "white",
               whiteSpace: "nowrap",
-              animation: "sidebar-link 0.3s ease forwards",
+              animation: "sidebar-expand 0.3s ease forwards",
             }}
           >
             {expanded && "Music Manage"}
@@ -187,7 +187,7 @@ const SideBar = () => {
               color: "#FFFFFF",
               pointerEvents: "none",
               whiteSpace: "nowrap",
-              animation: "sidebar-link 0.3s ease forwards",
+              animation: "sidebar-expand 0.3s ease forwards",
             }}
           >
             {expanded && "Настройки аккаунта"}

@@ -22,11 +22,18 @@
     border-radius: 10px;
 }
 
-@keyframes sidebar-link{
+@keyframes sidebar-expand{
   0% {
     opacity: 0;
+    color: aqua;
+  }
+  50% {
+    opacity: 0.5;
+    color: aquamarine;
   }
   100% {
     opacity: 1;
+    color: black;
+    
   }
 }
