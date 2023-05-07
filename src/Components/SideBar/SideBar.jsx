@@ -88,7 +88,14 @@ const SideBar = () => {
       }}
     >
       <aside>
-        <div className={`main_music ${expanded ? "expanded" : ""}`}>
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "80px",
+            backgroundColor: "#3051FF",
+          }}
+        >
           <img
             style={{ position: "absolute", top: 20, left: 15 }}
             src="./img/music-icon.png"
