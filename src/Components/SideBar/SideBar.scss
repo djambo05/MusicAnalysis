@@ -1,9 +1,12 @@
 .menus-li {
     display: flex;
     align-items: center;
-    height: 40px;
+    text-align: left;
+    flex-wrap: wrap;
+    min-height: 40px;
     width: 100%;
-    gap: 13.5px
+    column-gap: 13.5px;
+    row-gap: 5px;
 }
 
 .menus-li:hover {

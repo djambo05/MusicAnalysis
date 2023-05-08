@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "../../styles/global.css";
 import "./SideBar.scss";
-import { render } from "@testing-library/react";
 const SideBar = () => {
   const menuData = [
     {
@@ -63,12 +62,13 @@ const SideBar = () => {
         style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
           listStyle: "none",
-          height: "290px",
+          gap: "30px",
+          minHeight: "320px",
           marginTop: "31px",
           marginBottom: "0px",
           padding: "0px 0px",
+          width: "228px",
         }}
       >
         {mas.map((obj) => (
@@ -79,13 +79,13 @@ const SideBar = () => {
                 height: "27px",
                 pointerEvents: "none",
                 marginLeft: "21.5px",
-                color: "#F0F0F0",
               }}
               src={`./img/${obj.img}`}
               alt={`${obj.alt}`}
             ></img>
             <span
               style={{
+                minWidth: "120px",
                 fontStyle: "normal",
                 fontWeight: "500",
                 fontSize: "16px",
@@ -96,15 +96,50 @@ const SideBar = () => {
                 animation: "sidebar-expand 0.3s ease forwards",
               }}
             >
-              {expanded && obj.title}
+              {
+                // expanded &&
+                obj.title
+              }
             </span>
             {obj.subsections ? (
               <img
+                style={{ marginLeft: 0 }}
                 src={`./img/${dropDownList ? "up.png" : "down.png"}`}
                 alt={`${dropDownList ? "up.png" : "down.png"}`}
+                onClick={dropDown}
               ></img>
             ) : (
               <span style={{ flexGrow: 1 }}></span>
+            )}
+            {dropDownList && obj.subsections ? (
+              <ul
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  listStyle: "none",
+                  gap: "10px",
+                }}
+              >
+                {obj.subsections.map((item) => {
+                  return (
+                    <li
+                      style={{
+                        marginLeft: "65px",
+                        fontStyle: "normal",
+                        fontWeight: "500",
+                        fontSize: "14px",
+                        lineHeight: "17px",
+                        color: "#CFD4DC",
+                      }}
+                      key={item.id}
+                    >
+                      {`${item.title}`}
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : (
+              ""
             )}
           </li>
         ))}
