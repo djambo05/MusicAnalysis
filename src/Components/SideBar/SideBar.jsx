@@ -55,6 +55,7 @@ const SideBar = () => {
   };
   const toggleExpanded = () => {
     setExpanded(!expanded);
+    setDropDownList(false);
   };
   function renderMenu(mas) {
     return (
@@ -85,6 +86,12 @@ const SideBar = () => {
             ></img>
             <span
               style={{
+                opacity: expanded ? 1 : 0,
+                visibility: expanded ? "visible" : "hidden",
+                transitionProperty: "opacity, visibility",
+                transitionDelay: "0.3s",
+                transitionDuration: "1s",
+                transitionTimingFunction: "ease-in-out",
                 minWidth: "120px",
                 fontStyle: "normal",
                 fontWeight: "500",
@@ -93,13 +100,9 @@ const SideBar = () => {
                 color: "#FFFFFF",
                 pointerEvents: "none",
                 whiteSpace: "nowrap",
-                animation: "sidebar-expand 0.3s ease forwards",
               }}
             >
-              {
-                // expanded &&
-                obj.title
-              }
+              {obj.title}
             </span>
             {obj.subsections ? (
               <img
@@ -118,6 +121,12 @@ const SideBar = () => {
                   flexDirection: "column",
                   listStyle: "none",
                   gap: "10px",
+                  opacity: dropDownList ? 1 : 0,
+                  visibility: dropDownList ? "visible" : "hidden",
+                  transitionProperty: "opacity, visibility",
+                  transitionDelay: "0.3s",
+                  transitionDuration: "1s",
+                  transitionTimingFunction: "ease-in-out",
                 }}
               >
                 {obj.subsections.map((item) => {
@@ -159,7 +168,10 @@ const SideBar = () => {
         height: "100%",
         top: 0,
         left: 0,
-        transition: "width 0.3s ease-in-out",
+        transitionProperty: "width",
+        transitionDelay: "0.3s",
+        transitionDuration: "1s",
+        transitionTimingFunction: "ease-in-out",
       }}
     >
       <div
@@ -181,16 +193,21 @@ const SideBar = () => {
         ></img>
         <span
           style={{
+            opacity: expanded ? 1 : 0,
+            visibility: expanded ? "visible" : "hidden",
+            transitionProperty: "opacity, visibility",
+            transitionDelay: "0.3s",
+            transitionDuration: "1s",
+            transitionTimingFunction: "ease-in-out",
             fontStyle: "normal",
             fontWeight: "500",
             fontSize: "20px",
             lineHeight: "24px",
             color: "white",
             whiteSpace: "nowrap",
-            animation: "sidebar-expand 0.3s ease forwards",
           }}
         >
-          {expanded && "Music Manage"}
+          Music Manage
         </span>
         <span style={{ flexGrow: 1 }}></span>
       </div>
@@ -241,6 +258,12 @@ const SideBar = () => {
           ></img>
           <span
             style={{
+              opacity: expanded ? 1 : 0,
+              visibility: expanded ? "visible" : "hidden",
+              transitionProperty: "opacity, visibility",
+              transitionDelay: "0.3s",
+              transitionDuration: "1s",
+              transitionTimingFunction: "ease-in-out",
               fontStyle: "normal",
               fontWeight: "500",
               fontSize: "14px",
@@ -249,10 +272,9 @@ const SideBar = () => {
               color: "#FFFFFF",
               pointerEvents: "none",
               whiteSpace: "nowrap",
-              animation: "sidebar-expand 0.3s ease forwards",
             }}
           >
-            {expanded && "Настройки аккаунта"}
+            Настройки аккаунта
           </span>
         </li>
       </ul>
