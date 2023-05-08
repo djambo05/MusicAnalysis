@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../../styles/global.css";
 import "./SideBar.scss";
+import { render } from "@testing-library/react";
 const SideBar = () => {
   const menuData = [
     {
@@ -26,6 +27,20 @@ const SideBar = () => {
       title: "Маркетинг",
       img: "promotion.png",
       alt: "promotion",
+      subsections: [
+        {
+          id: 4.1,
+          title: "Чарты 4.1",
+          img: "promotion.png",
+          alt: "charts",
+        },
+        {
+          id: 4.2,
+          title: "Чарты 4.2",
+          img: "promotion.png",
+          alt: "charts",
+        },
+      ],
     },
     {
       id: 5,
@@ -35,54 +50,67 @@ const SideBar = () => {
     },
   ];
   const [expanded, setExpanded] = useState(false);
+  const [dropDownList, setDropDownList] = useState(false);
+  const dropDown = () => {
+    setDropDownList(!dropDownList);
+  };
   const toggleExpanded = () => {
     setExpanded(!expanded);
   };
-  const menus = (
-    <ul
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        listStyle: "none",
-        height: "290px",
-        marginTop: "31px",
-        marginBottom: "0px",
-        padding: "0px 0px",
-      }}
-    >
-      {" "}
-      {menuData.map((section) => (
-        <li className="menus-li" key={section.id}>
-          <img
-            style={{
-              width: "27px",
-              height: "27px",
-              pointerEvents: "none",
-              marginLeft: "21.5px",
-            }}
-            src={`./img/${section.img}`}
-            alt={`${section.alt}`}
-          ></img>
-          <span
-            style={{
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "16px",
-              lineHeight: "19px",
-              color: "#FFFFFF",
-              pointerEvents: "none",
-              whiteSpace: "nowrap",
-              animation: "sidebar-expand 0.3s ease forwards",
-            }}
-          >
-            {expanded && section.title}
-          </span>
-          <span style={{ flexGrow: 1 }}></span>
-        </li>
-      ))}{" "}
-    </ul>
-  );
+  function renderMenu(mas) {
+    return (
+      <ul
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          listStyle: "none",
+          height: "290px",
+          marginTop: "31px",
+          marginBottom: "0px",
+          padding: "0px 0px",
+        }}
+      >
+        {mas.map((obj) => (
+          <li className="menus-li" key={obj.id}>
+            <img
+              style={{
+                width: "27px",
+                height: "27px",
+                pointerEvents: "none",
+                marginLeft: "21.5px",
+                color: "#F0F0F0",
+              }}
+              src={`./img/${obj.img}`}
+              alt={`${obj.alt}`}
+            ></img>
+            <span
+              style={{
+                fontStyle: "normal",
+                fontWeight: "500",
+                fontSize: "16px",
+                lineHeight: "19px",
+                color: "#FFFFFF",
+                pointerEvents: "none",
+                whiteSpace: "nowrap",
+                animation: "sidebar-expand 0.3s ease forwards",
+              }}
+            >
+              {expanded && obj.title}
+            </span>
+            {obj.subsections ? (
+              <img
+                src={`./img/${dropDownList ? "up.png" : "down.png"}`}
+                alt={`${dropDownList ? "up.png" : "down.png"}`}
+              ></img>
+            ) : (
+              <span style={{ flexGrow: 1 }}></span>
+            )}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   return (
     <nav
@@ -131,7 +159,7 @@ const SideBar = () => {
         </span>
         <span style={{ flexGrow: 1 }}></span>
       </div>
-      {menus}
+      {renderMenu(menuData)}
       <div style={{ flexGrow: 1 }}></div>
       <ul
         style={{
