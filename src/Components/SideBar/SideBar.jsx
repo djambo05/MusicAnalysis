@@ -1,40 +1,41 @@
 import { useState } from "react";
 import "../../styles/global.css";
 import "./SideBar.scss";
+import { Menus } from "./Menus";
 const SideBar = () => {
   const menuData = [
     {
-      id: 1,
+      id: "1",
       title: "Аналитика",
       img: "statistics.png",
       alt: "statistics",
     },
     {
-      id: 2,
+      id: "2",
       title: "Моя музыка",
       img: "headphones.png",
       alt: "headphones",
     },
     {
-      id: 3,
+      id: "3",
       title: "Тексты треков",
       img: "music-list.png",
       alt: "music-list",
     },
     {
-      id: 4,
+      id: "4",
       title: "Маркетинг",
       img: "promotion.png",
       alt: "promotion",
       subsections: [
         {
-          id: 4.1,
+          id: "4.1",
           title: "Чарты 4.1",
           img: "promotion.png",
           alt: "charts",
         },
         {
-          id: 4.2,
+          id: "4.2",
           title: "Чарты 4.2",
           img: "promotion.png",
           alt: "charts",
@@ -42,119 +43,29 @@ const SideBar = () => {
       ],
     },
     {
-      id: 5,
+      id: "5",
       title: "Новости",
       img: "newspaper.png",
       alt: "newspaper",
     },
   ];
+
   const [expanded, setExpanded] = useState(false);
-  const [dropDownList, setDropDownList] = useState(false);
-  const dropDown = () => {
-    setDropDownList(!dropDownList);
+  const [dropDownList, setDropDownList] = useState([]);
+  console.log(typeof dropDownList);
+  const dropDown = (id) => {
+    if (dropDownList.includes(id)) {
+      setDropDownList((prev) => prev.filter((_id) => _id !== id));
+    } else {
+      setDropDownList((prev) => [...prev, id]);
+    }
+    // console.log("id =", id);
+    // console.log("dropdown -", dropDownList);
   };
   const toggleExpanded = () => {
     setExpanded(!expanded);
-    setDropDownList(false);
+    setDropDownList([]);
   };
-  function renderMenu(mas) {
-    return (
-      <ul
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          listStyle: "none",
-          gap: "30px",
-          minHeight: "320px",
-          marginTop: "31px",
-          marginBottom: "0px",
-          padding: "0px 0px",
-          width: "228px",
-        }}
-      >
-        {mas.map((obj) => (
-          <li className="menus-li" key={obj.id}>
-            <img
-              style={{
-                width: "27px",
-                height: "27px",
-                pointerEvents: "none",
-                marginLeft: "21.5px",
-              }}
-              src={`./img/${obj.img}`}
-              alt={`${obj.alt}`}
-            ></img>
-            <span
-              style={{
-                opacity: expanded ? 1 : 0,
-                visibility: expanded ? "visible" : "hidden",
-                transitionProperty: "opacity, visibility",
-                transitionDelay: "0.3s",
-                transitionDuration: "1s",
-                transitionTimingFunction: "ease-in-out",
-                minWidth: "120px",
-                fontStyle: "normal",
-                fontWeight: "500",
-                fontSize: "16px",
-                lineHeight: "19px",
-                color: "#FFFFFF",
-                pointerEvents: "none",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {obj.title}
-            </span>
-            {obj.subsections ? (
-              <img
-                style={{ marginLeft: 0 }}
-                src={`./img/${dropDownList ? "up.png" : "down.png"}`}
-                alt={`${dropDownList ? "up.png" : "down.png"}`}
-                onClick={dropDown}
-              ></img>
-            ) : (
-              <span style={{ flexGrow: 1 }}></span>
-            )}
-            {dropDownList && obj.subsections ? (
-              <ul
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  listStyle: "none",
-                  gap: "10px",
-                  opacity: dropDownList ? 1 : 0,
-                  visibility: dropDownList ? "visible" : "hidden",
-                  transitionProperty: "opacity, visibility",
-                  transitionDelay: "0.3s",
-                  transitionDuration: "1s",
-                  transitionTimingFunction: "ease-in-out",
-                }}
-              >
-                {obj.subsections.map((item) => {
-                  return (
-                    <li
-                      style={{
-                        marginLeft: "65px",
-                        fontStyle: "normal",
-                        fontWeight: "500",
-                        fontSize: "14px",
-                        lineHeight: "17px",
-                        color: "#CFD4DC",
-                      }}
-                      key={item.id}
-                    >
-                      {`${item.title}`}
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              ""
-            )}
-          </li>
-        ))}
-      </ul>
-    );
-  }
 
   return (
     <nav
@@ -211,7 +122,12 @@ const SideBar = () => {
         </span>
         <span style={{ flexGrow: 1 }}></span>
       </div>
-      {renderMenu(menuData)}
+      <Menus
+        mas={menuData}
+        expanded={expanded}
+        dropDown={dropDown}
+        dropDownList={dropDownList}
+      />
       <div style={{ flexGrow: 1 }}></div>
       <ul
         style={{
