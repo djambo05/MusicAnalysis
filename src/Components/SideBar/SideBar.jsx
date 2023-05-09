@@ -80,7 +80,7 @@ const SideBar = () => {
         top: 0,
         left: 0,
         transitionProperty: "width",
-        transitionDelay: "0.3s",
+        transitionDelay: "0.05s",
         transitionDuration: "1s",
         transitionTimingFunction: "ease-in-out",
       }}

@@ -42,52 +42,62 @@ export const ItemMenu = ({
         >
           {title}
         </span>
-        {subsections ? (
-          <img
-            style={{ marginLeft: 0 }}
-            src={`./img/${isDropDown ? "up.png" : "down.png"}`}
-            alt={`${isDropDown ? "up.png" : "down.png"}`}
-            onClick={() => dropDown(id)}
-          ></img>
-        ) : (
-          <span style={{ flexGrow: 1 }}></span>
-        )}
-      </li>
 
-      {isDropDown && (
-        <ul
+        <img
           style={{
-            display: "flex",
-            flexDirection: "column",
-            listStyle: "none",
-            gap: "10px",
-            opacity: isDropDown ? 1 : 0,
-            visibility: isDropDown ? "visible" : "hidden",
+            marginLeft: 0,
+            backgroundColor: "black",
+            opacity: expanded && subsections ? 1 : 0,
+            visibility: expanded && subsections ? "visible" : "hidden",
             transitionProperty: "opacity, visibility",
-            transitionDelay: "0.3s",
-            transitionDuration: "1s",
+            transitionDelay: "0.2s",
+            transitionDuration: "0.3s",
             transitionTimingFunction: "ease-in-out",
           }}
-        >
-          {subsections.map((item) => {
-            return (
-              <li
-                style={{
-                  marginLeft: "65px",
-                  fontStyle: "normal",
-                  fontWeight: "500",
-                  fontSize: "14px",
-                  lineHeight: "17px",
-                  color: "#CFD4DC",
-                }}
-                key={item.id}
-              >
-                {`${item.title}`}
-              </li>
-            );
-          })}
-        </ul>
-      )}
+          src={`./img/${
+            subsections && expanded && isDropDown ? "up.png" : "down.png"
+          }`}
+          alt={`${
+            subsections && expanded && isDropDown ? "up.png" : "down.png"
+          }`}
+          onClick={() => dropDown(id)}
+        ></img>
+      </li>
+
+      <ul
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          listStyle: "none",
+          gap: "10px",
+          maxHeight: isDropDown ? "60px" : "0px",
+          height: "auto",
+          opacity: isDropDown ? 1 : 0,
+          visibility: isDropDown ? "visible" : "hidden",
+          transitionProperty: "max-height, opacity, visibility",
+          transitionDelay: "0.2s",
+          transitionDuration: "0.3s",
+          transitionTimingFunction: "ease-in-out",
+        }}
+      >
+        {subsections?.map((item) => {
+          return (
+            <li
+              style={{
+                marginLeft: "65px",
+                fontStyle: "normal",
+                fontWeight: "500",
+                fontSize: "14px",
+                lineHeight: "17px",
+                color: "#CFD4DC",
+              }}
+              key={item.id}
+            >
+              {`${item.title}`}
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 };
