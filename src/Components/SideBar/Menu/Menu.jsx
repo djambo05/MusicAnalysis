@@ -1,4 +1,6 @@
-export const Menu = ({ expand }) => {
+import { MenuItem } from "./MenuItem";
+import "./index.scss";
+export const Menu = ({ expand, handleSubmenu, dropSubmenu }) => {
   const menuData = [
     {
       id: 1,
@@ -17,6 +19,20 @@ export const Menu = ({ expand }) => {
       title: "Тексты треков",
       img: "music-list.png",
       alt: "music-list",
+      subsections: [
+        {
+          id: 3.1,
+          title: "Чарты 4.1",
+          img: "promotion.png",
+          alt: "charts",
+        },
+        {
+          id: 3.2,
+          title: "Чарты 4.2",
+          img: "promotion.png",
+          alt: "charts",
+        },
+      ],
     },
     {
       id: 4,
@@ -56,23 +72,13 @@ export const Menu = ({ expand }) => {
     >
       {menuData.map((obj) => {
         return (
-          <li
-            style={{
-              padding: "14px 20px",
-              minWidth: "228px",
-            }}
-          >
-            <div
-              style={{ display: "flex", alignItems: "center", width: "100%" }}
-            >
-              <img
-                style={{ width: "27px", height: "27px" }}
-                src={`./img/${obj.img}`}
-                alt={obj.alt}
-              ></img>
-              <span style={{ whiteSpace: "nowrap" }}>{obj.title}</span>
-            </div>
-          </li>
+          <MenuItem
+            key={obj.id}
+            expand={expand}
+            {...obj}
+            handleSubmenu={handleSubmenu}
+            isDropDown={dropSubmenu.includes(obj.id)}
+          />
         );
       })}
     </ul>

@@ -3,9 +3,20 @@ import { Menu } from "./Menu/Menu";
 
 const SideBar = () => {
   const [expand, setExpand] = useState(false);
+  console.log(expand);
+  const [dropSubmenu, setDropSubmenu] = useState([]);
+  const handleSubmenu = (id) => {
+    if (dropSubmenu.includes(id)) {
+      setDropSubmenu((prev) => prev.filter((_id) => _id !== id));
+    } else {
+      setDropSubmenu((prev) => [...prev, id]);
+    }
+  };
   const handleExpand = () => {
     setExpand(!expand);
+    setDropSubmenu([]);
   };
+
   return (
     <nav
       style={{
@@ -15,18 +26,19 @@ const SideBar = () => {
         height: "100%",
         backgroundColor: "#0E284F",
         position: "fixed",
-        width: expand ? "70px" : "228px",
+        width: expand ? "228px" : "70px",
         transitionDelay: "0.2s",
         transitionDuration: "0.4s",
         transitionProperty: "width",
         transitionTimingFunction: "ease-in-out",
+        color: "white",
       }}
     >
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "30px",
+          gap: "28px",
         }}
       >
         <div
@@ -45,17 +57,32 @@ const SideBar = () => {
             }}
           >
             <img src="./img/music-icon.png" alt="music-icon"></img>
-            <span
-              style={{
-                whiteSpace: "nowrap",
-                width: "auto",
-              }}
-            >
-              Music
-            </span>
+            <div style={{ marginLeft: "10px" }}>
+              <span
+                style={{
+                  opacity: expand ? 1 : 0,
+                  visibility: expand ? "visible" : "hidden",
+                  transitionDelay: "0.2s",
+                  transitionDuration: "0.4s",
+                  transitionProperty: "visibility, opacity",
+                  transitionTimingFunction: "ease-in-out",
+                  whiteSpace: "nowrap",
+                  fontStyle: "normal",
+                  fontWeight: "500",
+                  fontSize: "20px",
+                  lineHeight: "14px",
+                }}
+              >
+                Music Manage
+              </span>
+            </div>
           </div>
         </div>
-        <Menu expand={expand} />
+        <Menu
+          expand={expand}
+          handleSubmenu={handleSubmenu}
+          dropSubmenu={dropSubmenu}
+        />
       </div>
       <ul
         style={{
@@ -77,7 +104,15 @@ const SideBar = () => {
           <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
             <img
               onClick={handleExpand}
-              src={`./img/${expand ? "arrowLeft.png" : "arrowRight.png"}`}
+              style={{
+                transform: expand ? "rotateY(0deg)" : "rotateY(180deg)",
+                cursor: "pointer",
+                transitionDelay: "0.2s",
+                transitionDuration: "0.4s",
+                transitionProperty: "transform",
+                transitionTimingFunction: "ease-in-out",
+              }}
+              src="./img/arrowLeft.png"
               alt="arrow"
             ></img>
           </div>
@@ -92,8 +127,37 @@ const SideBar = () => {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
-            <img src="./img/avatar.png" alt="Avatar"></img>
-            <span style={{ whiteSpace: "nowrap" }}>Settings</span>
+            <img
+              style={{ cursor: "pointer" }}
+              src="./img/avatar.png"
+              alt="Avatar"
+            ></img>
+            <div
+              style={{
+                marginLeft: "10px",
+                cursor: "pointer",
+              }}
+            >
+              <span
+                style={{
+                  width: expand ? "150px" : "100px",
+                  opacity: expand ? 1 : 0,
+                  visibility: expand ? "visible" : "hidden",
+                  transitionDelay: "0.2s",
+                  transitionDuration: "0.4s",
+                  transitionProperty: "visibility, opacity, width",
+                  transitionTimingFunction: "ease-in-out",
+                  whiteSpace: "nowrap",
+                  textDecorationLine: "underline",
+                  fontStyle: "normal",
+                  fontWeight: "500",
+                  fontSize: "14px",
+                  lineHeight: "17px",
+                }}
+              >
+                Настройки аккаунта
+              </span>
+            </div>
           </div>
         </li>
       </ul>

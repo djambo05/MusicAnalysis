@@ -1,0 +1,15 @@
+.hover-background-effect:hover {
+    position: relative;
+    background: linear-gradient(90deg,  rgba(255, 255, 255, 0.15) -7.41%, rgba(255, 255, 255, 0) 26.95px);
+}
+
+.hover-background-effect:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
