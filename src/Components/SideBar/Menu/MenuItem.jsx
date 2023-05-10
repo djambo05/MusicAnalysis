@@ -1,4 +1,18 @@
-export const MenuItem = ({ expand, id, title, img, alt, subsections }) => {
+export const MenuItem = ({
+  expand,
+  id,
+  title,
+  img,
+  alt,
+  subsections,
+  handleSubmenu,
+  isDropDown,
+}) => {
+  if (subsections) {
+    console.log(id, "yes");
+  } else {
+    console.log(id, "no");
+  }
   return (
     <li
       style={{
@@ -11,34 +25,39 @@ export const MenuItem = ({ expand, id, title, img, alt, subsections }) => {
         style={{
           padding: "9px 0px",
           height: "40px",
-          width: expand ? "70px" : "228px",
+          width: expand ? "228px" : "70px",
         }}
       >
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            gap: "15px",
             minWidth: "228px",
-            pointerEvents: "none",
+            pointerEvents: expand ? "" : "none",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div>
-              <img
-                style={{
-                  width: "22px",
-                  height: "22px",
-                  marginLeft: "23px",
-                }}
-                src={`./img/${img}`}
-                alt={alt}
-              ></img>
-            </div>
+          <img
+            style={{
+              width: "22px",
+              height: "22px",
+              marginLeft: "23px",
+            }}
+            src={`./img/${img}`}
+            alt={alt}
+          ></img>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              minWidth: "150px",
+            }}
+          >
             <span
               style={{
-                opacity: expand ? 0 : 1,
-                visibility: expand ? "hidden" : "visible",
+                opacity: expand ? 1 : 0,
+                visibility: expand ? "visible" : "hidden",
                 transitionDelay: "0.2s",
                 transitionDuration: "0.4s",
                 transitionProperty: "visibility, opacity",
@@ -48,25 +67,33 @@ export const MenuItem = ({ expand, id, title, img, alt, subsections }) => {
                 fontWeight: "500",
                 fontSize: "16px",
                 lineHeight: "19px",
-                marginLeft: "15px",
               }}
             >
               {title}
             </span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              minWidth: "40px",
-            }}
-          >
-            <div>
-              <img
-                src={`./img/${subsections ? "arrowDown.png" : "arrowUp.png"}`}
-                alt="Arrow"
-              ></img>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: "40px",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <img
+                  style={{
+                    opacity: expand && subsections ? 1 : 0,
+                    visibility: subsections ? "visible" : "hidden",
+                    transitionProperty: "opacity, visibility",
+                    transitionDelay: "0.2s",
+                    transitionDuration: "0.3s",
+                    transitionTimingFunction: "ease-in-out",
+                  }}
+                  src={`./img/${isDropDown ? "arrowUp.png" : "arrowDown.png"}`}
+                  alt="Arrow"
+                  onClick={() => handleSubmenu(id)}
+                ></img>
+              </div>
             </div>
           </div>
         </div>
