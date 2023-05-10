@@ -104,7 +104,15 @@ const SideBar = () => {
           <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
             <img
               onClick={handleExpand}
-              src={`./img/${expand ? "arrowRight.png" : "arrowLeft.png"}`}
+              style={{
+                transform: expand ? "rotateY(0deg)" : "rotateY(180deg)",
+                cursor: "pointer",
+                transitionDelay: "0.2s",
+                transitionDuration: "0.4s",
+                transitionProperty: "transform",
+                transitionTimingFunction: "ease-in-out",
+              }}
+              src="./img/arrowLeft.png"
               alt="arrow"
             ></img>
           </div>
@@ -119,15 +127,25 @@ const SideBar = () => {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
-            <img src="./img/avatar.png" alt="Avatar"></img>
-            <div style={{ marginLeft: "10px" }}>
+            <img
+              style={{ cursor: "pointer" }}
+              src="./img/avatar.png"
+              alt="Avatar"
+            ></img>
+            <div
+              style={{
+                marginLeft: "10px",
+                cursor: "pointer",
+              }}
+            >
               <span
                 style={{
+                  width: expand ? "150px" : "100px",
                   opacity: expand ? 1 : 0,
                   visibility: expand ? "visible" : "hidden",
                   transitionDelay: "0.2s",
                   transitionDuration: "0.4s",
-                  transitionProperty: "visibility, opacity",
+                  transitionProperty: "visibility, opacity, width",
                   transitionTimingFunction: "ease-in-out",
                   whiteSpace: "nowrap",
                   textDecorationLine: "underline",

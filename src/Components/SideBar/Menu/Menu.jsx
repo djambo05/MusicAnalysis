@@ -19,6 +19,20 @@ export const Menu = ({ expand, handleSubmenu, dropSubmenu }) => {
       title: "Тексты треков",
       img: "music-list.png",
       alt: "music-list",
+      subsections: [
+        {
+          id: 3.1,
+          title: "Чарты 4.1",
+          img: "promotion.png",
+          alt: "charts",
+        },
+        {
+          id: 3.2,
+          title: "Чарты 4.2",
+          img: "promotion.png",
+          alt: "charts",
+        },
+      ],
     },
     {
       id: 4,

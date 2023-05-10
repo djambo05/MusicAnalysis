@@ -8,11 +8,6 @@ export const MenuItem = ({
   handleSubmenu,
   isDropDown,
 }) => {
-  if (subsections) {
-    console.log(id, "yes");
-  } else {
-    console.log(id, "no");
-  }
   return (
     <li
       style={{
@@ -77,26 +72,75 @@ export const MenuItem = ({
                 alignItems: "center",
                 justifyContent: "center",
                 minWidth: "40px",
+                cursor: "pointer",
               }}
+              onClick={() => handleSubmenu(id)}
             >
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  opacity: expand && subsections ? 1 : 0,
+                  visibility: subsections ? "visible" : "hidden",
+                  transitionProperty: "opacity, visibility, transform",
+                  transitionDelay: "0.2s",
+                  transitionDuration: "0.3s",
+                  transitionTimingFunction: "ease-in-out",
+                }}
+              >
                 <img
                   style={{
-                    opacity: expand && subsections ? 1 : 0,
-                    visibility: subsections ? "visible" : "hidden",
-                    transitionProperty: "opacity, visibility",
+                    transform: isDropDown ? "rotate(0deg)" : "rotate(180deg)",
+                    transitionProperty: "transform",
                     transitionDelay: "0.2s",
                     transitionDuration: "0.3s",
                     transitionTimingFunction: "ease-in-out",
                   }}
-                  src={`./img/${isDropDown ? "arrowUp.png" : "arrowDown.png"}`}
+                  src="./img/arrowUp.png"
                   alt="Arrow"
-                  onClick={() => handleSubmenu(id)}
                 ></img>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minWidth: "228px",
+          maxHeight: isDropDown
+            ? `${(20 * subsections.length).toString()}px`
+            : "0px",
+          transitionProperty: "max-height",
+          transitionDelay: "0.2s",
+          transitionDuration: "0.3s",
+          transitionTimingFunction: "ease-in-out",
+        }}
+      >
+        {subsections?.map((obj) => {
+          return (
+            <span
+              style={{
+                marginLeft: "65px",
+                padding: "7.5px 0px",
+                opacity: isDropDown ? 1 : 0,
+                visibility: subsections ? "visible" : "hidden",
+                transitionProperty: "opacity, visibility, min-height",
+                transitionDelay: "0.2s",
+                transitionDuration: "0.3s",
+                transitionTimingFunction: "ease-in-out",
+                fontStyle: "normal",
+                fontWeight: "500",
+                fontSize: "14px",
+                lineHeight: "17px",
+                color: "#CFD4DC",
+              }}
+            >
+              {obj.title}
+            </span>
+          );
+        })}
       </div>
     </li>
   );
