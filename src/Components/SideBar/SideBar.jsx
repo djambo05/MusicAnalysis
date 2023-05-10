@@ -32,78 +32,71 @@ const SideBar = () => {
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
             height: "80px",
             backgroundColor: "#3051FF",
-            width: expand ? "70px" : "228px",
-            transitionDelay: "0.2s",
-            transitionDuration: "0.4s",
-            transitionProperty: "width",
-            transitionTimingFunction: "ease-in-out",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "20px 15px",
+              minWidth: "228px",
+            }}
+          >
             <img src="./img/music-icon.png" alt="music-icon"></img>
-            <span style={{ whiteSpace: "nowrap" }}>Music</span>
+            <span
+              style={{
+                whiteSpace: "nowrap",
+                width: "auto",
+              }}
+            >
+              Music
+            </span>
           </div>
         </div>
         <Menu expand={expand} />
       </div>
-      <div
+      <ul
         style={{
-          display: "flex",
-          width: expand ? "70px" : "228px",
-          transitionDelay: "0.2s",
-          transitionDuration: "0.4s",
-          transitionProperty: "width",
-          transitionTimingFunction: "ease-in-out",
+          listStyle: "none",
+          margin: 0,
+          paddingBottom: "30px",
+          paddingInlineStart: "0px",
         }}
       >
-        <ul
+        <li
           style={{
-            width: "100%",
-            listStyle: "none",
-            margin: 0,
-            padding: 0,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minWidth: "228px",
+            padding: "0px 23px 5px 23px",
           }}
         >
-          <li
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "30px",
-            }}
-          >
-            <div
-              style={{ display: "flex", alignItems: "center", width: "100%" }}
-            >
-              <button
-                style={{ padding: "10px" }}
-                onClick={handleExpand}
-              ></button>
-            </div>
-          </li>
-          <li
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "30px",
-            }}
-          >
-            <div
-              style={{ display: "flex", alignItems: "center", width: "100%" }}
-            >
-              <button style={{ padding: "10px" }}></button>
-              <span style={{ whiteSpace: "nowrap" }}>Settings</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+          <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
+            <img
+              onClick={handleExpand}
+              src={`./img/${expand ? "arrowLeft.png" : "arrowRight.png"}`}
+              alt="arrow"
+            ></img>
+          </div>
+        </li>
+        <li
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minWidth: "228px",
+            padding: "5px 15px 0px 15px",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
+            <img src="./img/avatar.png" alt="Avatar"></img>
+            <span style={{ whiteSpace: "nowrap" }}>Settings</span>
+          </div>
+        </li>
+      </ul>
     </nav>
   );
 };

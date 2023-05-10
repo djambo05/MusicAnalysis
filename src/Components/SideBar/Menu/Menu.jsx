@@ -46,45 +46,35 @@ export const Menu = ({ expand }) => {
     },
   ];
   return (
-    <div
+    <ul
       style={{
-        display: "flex",
-        width: expand ? "70px" : "228px",
-        transitionDelay: "0.2s",
-        transitionDuration: "0.4s",
-        transitionProperty: "width",
-        transitionTimingFunction: "ease-in-out",
+        listStyle: "none",
+        height: "auto",
+        margin: 0,
+        padding: 0,
       }}
     >
-      <ul
-        style={{
-          width: "100%",
-          listStyle: "none",
-          margin: 0,
-          padding: 0,
-        }}
-      >
-        {menuData.map((obj) => {
-          return (
-            <li
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-                height: "30px",
-              }}
+      {menuData.map((obj) => {
+        return (
+          <li
+            style={{
+              padding: "14px 20px",
+              minWidth: "228px",
+            }}
+          >
+            <div
+              style={{ display: "flex", alignItems: "center", width: "100%" }}
             >
-              <div
-                style={{ display: "flex", alignItems: "center", width: "100%" }}
-              >
-                <img src={`./img/${obj.img}`} alt={obj.alt}></img>
-                <span style={{ whiteSpace: "nowrap" }}>{obj.title}</span>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+              <img
+                style={{ width: "27px", height: "27px" }}
+                src={`./img/${obj.img}`}
+                alt={obj.alt}
+              ></img>
+              <span style={{ whiteSpace: "nowrap" }}>{obj.title}</span>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
