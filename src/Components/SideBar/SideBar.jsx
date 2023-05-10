@@ -1,6 +1,6 @@
 const SideBar = () => {
   return (
-    <div
+    <nav
       style={{
         width: "70px",
         height: "100%",
@@ -20,7 +20,7 @@ const SideBar = () => {
       >
         <img src="./img/music-icon.png" alt="music-icon"></img>
       </div>
-    </div>
+    </nav>
   );
 };
 
