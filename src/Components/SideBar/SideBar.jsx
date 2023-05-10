@@ -20,13 +20,14 @@ const SideBar = () => {
         transitionDuration: "0.4s",
         transitionProperty: "width",
         transitionTimingFunction: "ease-in-out",
+        color: "white",
       }}
     >
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "30px",
+          gap: "28px",
         }}
       >
         <div
@@ -45,14 +46,25 @@ const SideBar = () => {
             }}
           >
             <img src="./img/music-icon.png" alt="music-icon"></img>
-            <span
-              style={{
-                whiteSpace: "nowrap",
-                width: "auto",
-              }}
-            >
-              Music
-            </span>
+            <div style={{ marginLeft: "10px" }}>
+              <span
+                style={{
+                  opacity: expand ? 0 : 1,
+                  visibility: expand ? "hidden" : "visible",
+                  transitionDelay: "0.2s",
+                  transitionDuration: "0.4s",
+                  transitionProperty: "visibility, opacity",
+                  transitionTimingFunction: "ease-in-out",
+                  whiteSpace: "nowrap",
+                  fontStyle: "normal",
+                  fontWeight: "500",
+                  fontSize: "20px",
+                  lineHeight: "14px",
+                }}
+              >
+                Music Manage
+              </span>
+            </div>
           </div>
         </div>
         <Menu expand={expand} />
@@ -93,7 +105,26 @@ const SideBar = () => {
         >
           <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
             <img src="./img/avatar.png" alt="Avatar"></img>
-            <span style={{ whiteSpace: "nowrap" }}>Settings</span>
+            <div style={{ marginLeft: "10px" }}>
+              <span
+                style={{
+                  opacity: expand ? 0 : 1,
+                  visibility: expand ? "hidden" : "visible",
+                  transitionDelay: "0.2s",
+                  transitionDuration: "0.4s",
+                  transitionProperty: "visibility, opacity",
+                  transitionTimingFunction: "ease-in-out",
+                  whiteSpace: "nowrap",
+                  textDecorationLine: "underline",
+                  fontStyle: "normal",
+                  fontWeight: "500",
+                  fontSize: "14px",
+                  lineHeight: "17px",
+                }}
+              >
+                Настройки аккаунта
+              </span>
+            </div>
           </div>
         </li>
       </ul>
