@@ -3,9 +3,20 @@ import { Menu } from "./Menu/Menu";
 
 const SideBar = () => {
   const [expand, setExpand] = useState(false);
+  console.log(expand);
+  const [dropSubmenu, setDropSubmenu] = useState([]);
+  const handleSubmenu = (id) => {
+    if (dropSubmenu.includes(id)) {
+      setDropSubmenu((prev) => prev.filter((_id) => _id !== id));
+    } else {
+      setDropSubmenu((prev) => [...prev, id]);
+    }
+  };
   const handleExpand = () => {
     setExpand(!expand);
+    setDropSubmenu([]);
   };
+
   return (
     <nav
       style={{
@@ -15,7 +26,7 @@ const SideBar = () => {
         height: "100%",
         backgroundColor: "#0E284F",
         position: "fixed",
-        width: expand ? "70px" : "228px",
+        width: expand ? "228px" : "70px",
         transitionDelay: "0.2s",
         transitionDuration: "0.4s",
         transitionProperty: "width",
@@ -49,8 +60,8 @@ const SideBar = () => {
             <div style={{ marginLeft: "10px" }}>
               <span
                 style={{
-                  opacity: expand ? 0 : 1,
-                  visibility: expand ? "hidden" : "visible",
+                  opacity: expand ? 1 : 0,
+                  visibility: expand ? "visible" : "hidden",
                   transitionDelay: "0.2s",
                   transitionDuration: "0.4s",
                   transitionProperty: "visibility, opacity",
@@ -67,7 +78,11 @@ const SideBar = () => {
             </div>
           </div>
         </div>
-        <Menu expand={expand} />
+        <Menu
+          expand={expand}
+          handleSubmenu={handleSubmenu}
+          dropSubmenu={dropSubmenu}
+        />
       </div>
       <ul
         style={{
@@ -89,7 +104,7 @@ const SideBar = () => {
           <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
             <img
               onClick={handleExpand}
-              src={`./img/${expand ? "arrowLeft.png" : "arrowRight.png"}`}
+              src={`./img/${expand ? "arrowRight.png" : "arrowLeft.png"}`}
               alt="arrow"
             ></img>
           </div>
@@ -108,8 +123,8 @@ const SideBar = () => {
             <div style={{ marginLeft: "10px" }}>
               <span
                 style={{
-                  opacity: expand ? 0 : 1,
-                  visibility: expand ? "hidden" : "visible",
+                  opacity: expand ? 1 : 0,
+                  visibility: expand ? "visible" : "hidden",
                   transitionDelay: "0.2s",
                   transitionDuration: "0.4s",
                   transitionProperty: "visibility, opacity",

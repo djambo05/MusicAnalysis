@@ -1,6 +1,6 @@
 import { MenuItem } from "./MenuItem";
 import "./index.scss";
-export const Menu = ({ expand }) => {
+export const Menu = ({ expand, handleSubmenu, dropSubmenu }) => {
   const menuData = [
     {
       id: 1,
@@ -57,7 +57,15 @@ export const Menu = ({ expand }) => {
       }}
     >
       {menuData.map((obj) => {
-        return <MenuItem key={obj.id} expand={expand} {...obj} />;
+        return (
+          <MenuItem
+            key={obj.id}
+            expand={expand}
+            {...obj}
+            handleSubmenu={handleSubmenu}
+            isDropDown={dropSubmenu.includes(obj.id)}
+          />
+        );
       })}
     </ul>
   );
