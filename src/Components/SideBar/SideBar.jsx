@@ -1,52 +1,7 @@
 import { useState } from "react";
+import { Menu } from "./Menu/Menu";
 
 const SideBar = () => {
-  const menuData = [
-    {
-      id: 1,
-      title: "Аналитика",
-      img: "statistics.png",
-      alt: "statistics",
-    },
-    {
-      id: 2,
-      title: "Моя музыка",
-      img: "headphones.png",
-      alt: "headphones",
-    },
-    {
-      id: 3,
-      title: "Тексты треков",
-      img: "music-list.png",
-      alt: "music-list",
-    },
-    {
-      id: 4,
-      title: "Маркетинг",
-      img: "promotion.png",
-      alt: "promotion",
-      subsections: [
-        {
-          id: 4.1,
-          title: "Чарты 4.1",
-          img: "promotion.png",
-          alt: "charts",
-        },
-        {
-          id: 4.2,
-          title: "Чарты 4.2",
-          img: "promotion.png",
-          alt: "charts",
-        },
-      ],
-    },
-    {
-      id: 5,
-      title: "Новости",
-      img: "newspaper.png",
-      alt: "newspaper",
-    },
-  ];
   const [expand, setExpand] = useState(false);
   const handleExpand = () => {
     setExpand(!expand);
@@ -69,19 +24,31 @@ const SideBar = () => {
     >
       <div
         style={{
-          height: "80px",
-          backgroundColor: "#3051FF",
           display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: expand ? "70px" : "228px",
-          transitionDelay: "0.2s",
-          transitionDuration: "0.4s",
-          transitionProperty: "width",
-          transitionTimingFunction: "ease-in-out",
+          flexDirection: "column",
+          gap: "30px",
         }}
       >
-        <img src="./img/music-icon.png" alt="music-icon"></img>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "80px",
+            backgroundColor: "#3051FF",
+            width: expand ? "70px" : "228px",
+            transitionDelay: "0.2s",
+            transitionDuration: "0.4s",
+            transitionProperty: "width",
+            transitionTimingFunction: "ease-in-out",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
+            <img src="./img/music-icon.png" alt="music-icon"></img>
+            <span style={{ whiteSpace: "nowrap" }}>Music</span>
+          </div>
+        </div>
+        <Menu expand={expand} />
       </div>
       <div
         style={{
@@ -93,7 +60,14 @@ const SideBar = () => {
           transitionTimingFunction: "ease-in-out",
         }}
       >
-        <ul style={{ width: "100%", listStyle: "none", margin: 0, padding: 0 }}>
+        <ul
+          style={{
+            width: "100%",
+            listStyle: "none",
+            margin: 0,
+            padding: 0,
+          }}
+        >
           <li
             style={{
               display: "flex",
@@ -103,7 +77,14 @@ const SideBar = () => {
               height: "30px",
             }}
           >
-            <button style={{ padding: "10px" }} onClick={handleExpand}></button>
+            <div
+              style={{ display: "flex", alignItems: "center", width: "100%" }}
+            >
+              <button
+                style={{ padding: "10px" }}
+                onClick={handleExpand}
+              ></button>
+            </div>
           </li>
           <li
             style={{
@@ -114,7 +95,12 @@ const SideBar = () => {
               height: "30px",
             }}
           >
-            <button></button>
+            <div
+              style={{ display: "flex", alignItems: "center", width: "100%" }}
+            >
+              <button style={{ padding: "10px" }}></button>
+              <span style={{ whiteSpace: "nowrap" }}>Settings</span>
+            </div>
           </li>
         </ul>
       </div>
