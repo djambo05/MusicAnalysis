@@ -1,4 +1,7 @@
+import { useContext } from "react";
+import { GlobalContext } from "../../Context/globalContext";
 export const Main = () => {
+  const { handleExpand } = useContext(GlobalContext);
   return (
     <div
       style={{
@@ -151,7 +154,8 @@ export const Main = () => {
                   border: "none",
                 }}
                 placeholder="Поиск"
-              ></input>
+                onClick={() => handleExpand("search")}
+              />
             </div>
             <div
               style={{

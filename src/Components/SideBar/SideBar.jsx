@@ -1,21 +1,10 @@
-import { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Menu } from "./Menu/Menu";
+import { GlobalContext } from "../../Context/globalContext";
 
 const SideBar = () => {
-  const [expand, setExpand] = useState(false);
-  console.log(expand);
-  const [dropSubmenu, setDropSubmenu] = useState([]);
-  const handleSubmenu = (id) => {
-    if (dropSubmenu.includes(id)) {
-      setDropSubmenu((prev) => prev.filter((_id) => _id !== id));
-    } else {
-      setDropSubmenu((prev) => [...prev, id]);
-    }
-  };
-  const handleExpand = () => {
-    setExpand(!expand);
-    setDropSubmenu([]);
-  };
+  const { expand, dropSubmenu, handleSubmenu, handleExpand } =
+    useContext(GlobalContext);
 
   return (
     <nav

@@ -121,6 +121,7 @@ export const MenuItem = ({
         {subsections?.map((obj) => {
           return (
             <span
+              key={obj.id}
               style={{
                 marginLeft: "65px",
                 padding: "7.5px 0px",
