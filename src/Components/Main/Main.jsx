@@ -1,6 +1,7 @@
 import { Search } from "./Search";
 import { Header } from "./Header";
 import { Choose } from "./Choose";
+import { Auditions } from "./Auditions";
 import "./index.scss";
 import { LineChart } from "./Graph";
 export const Main = () => {
@@ -24,6 +25,7 @@ export const Main = () => {
         <Header />
         <Search />
         <Choose />
+        <Auditions />
         {/* <LineChart /> */}
       </div>
     </div>
