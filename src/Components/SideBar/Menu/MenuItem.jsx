@@ -12,7 +12,7 @@ export const MenuItem = ({
     <li
       style={{
         padding: "16px 0px",
-        minWidth: "228px",
+        minWidth: expand ? "228px" : "70px",
       }}
     >
       <div
