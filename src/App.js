@@ -1,5 +1,8 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "./Components/Layout/Layout";
+import { Main } from "./Components/Main/Main";
 import "./style/global.scss";
+import { Other } from "./Components/Other/Other";
 
 function App() {
   return (
@@ -10,17 +13,13 @@ function App() {
         width: "auto",
       }}
     >
-      <Layout />
-      <div
-        style={{
-          display: "block",
-          marginLeft: "120px",
-          width: "100vh",
-          height: "100vh",
-        }}
-      >
-        Main Block
-      </div>
+      <Router>
+        <Layout />
+        <Routes>
+          <Route exact path="/" element={<Main />} />
+          <Route exact path="/other" element={<Other />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
