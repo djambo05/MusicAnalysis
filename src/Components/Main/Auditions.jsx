@@ -184,7 +184,7 @@ export const Auditions = () => {
                       fontWeight: "500",
                       fontSize: "14px",
                       lineHeight: "17px",
-                      color: "#3051FF",
+                      color: "#FE5372",
                     }}
                   >
                     + 1 456
@@ -211,7 +211,7 @@ export const Auditions = () => {
                   paddingTop: "15px",
                 }}
               >
-                <img src="./img/graphBlue.png" alt="graph"></img>
+                <img src="./img/graphRed.png" alt="graph"></img>
               </div>
             </div>
           </div>
