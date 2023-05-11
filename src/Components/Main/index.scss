@@ -1,0 +1,11 @@
+.choose-hover-effect:hover {
+    background-color: darken(#FFFFFF, 10%);
+    border-radius: 100px;
+  }
+  .choosen-effect {
+    background-color: #3051FF;
+    border-radius: 100px;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+  }
