@@ -12,7 +12,7 @@ export const MenuItem = ({
     <li
       style={{
         padding: "16px 0px",
-        minWidth: "228px",
+        minWidth: expand ? "228px" : "70px",
       }}
     >
       <div
@@ -121,6 +121,7 @@ export const MenuItem = ({
         {subsections?.map((obj) => {
           return (
             <span
+              key={obj.id}
               style={{
                 marginLeft: "65px",
                 padding: "7.5px 0px",
