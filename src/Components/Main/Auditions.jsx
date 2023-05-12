@@ -58,7 +58,8 @@ export const Auditions = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "79px",
+                justifyContent: "space-between",
+                width: "390px",
                 padding: "25px 0px",
                 borderBottom: "1px solid #D9D9D9",
               }}
@@ -219,9 +220,12 @@ export const Auditions = () => {
             style={{
               display: "flex",
               flex: 1,
+              height: "100%",
             }}
           >
-            <LineChart />
+            <div style={{ display: "flex", width: "100%", height: "100%" }}>
+              <LineChart />
+            </div>
           </div>
         </div>
       </div>
